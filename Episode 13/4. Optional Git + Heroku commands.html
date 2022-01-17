@@ -1,0 +1,26 @@
+<p><strong>If you are curious how the below command works, read on...</strong></p><pre class="prettyprint linenums">$ git push heroku master</pre><p>There are always few other steps to execute: Installing Git and Heroku, creating a local Git repo, signing-up to heroku, log-in heroku via command-line, creating heroku handle to hosting point (<em>explained in PART 2</em>)</p><p><strong>1. A local Git repository:</strong></p><pre class="prettyprint linenums">    $ git add .
+    $ git commit -m "my first commit"
+    Created initial commit 5df2d09: my first commit
+     44 files changed, 8393 insertions(+), 0 deletions(-)
+     create mode 100644 README
+     create mode 100644 Procfile
+     create mode 100644 app/controllers/source_file
+    ...
+</pre><p><strong>2. Have sign-up(ed) for Heroku and logged-in via command-line:</strong></p><pre class="prettyprint linenums">$ heroku login // or you can do this online
+Enter your Heroku credentials.
+Email: user@example.com
+Password:
+Could not find an existing public key.
+Would you like to generate one? [Yn]
+Generating new SSH public key.
+Uploading ssh public key /Users/adam/.ssh/id_rsa.pub
+</pre><p><br></p><p><strong>PART 2: but what does <em>heroku</em> and <em>master</em> indicate?</strong></p><p>It is more of a Git question than Heroku - Heroku is a hosting platform, which depends on Git (Distributed Version Control System) for deployment.</p><p>The basic concept of 'push' is pushing some thing (file, app, ..) we have locally (in our working machine) to somewhere else, in this case to a remote repository (remote machine).</p><p>In Git before using 'push' we create a remote (handle) which acts as a reference to a remote repository (Complete URL), we do so using the following command:</p><pre class="prettyprint linenums">$ git remote add &lt;remote-name-of-our-choice&gt; &lt;URL-where-you-be-pushing-yourapp&gt;
+</pre><p>The basic structure of 'push' command is:</p><pre class="prettyprint linenums">$ git push &lt;remote-name&gt; &lt;branch&gt;
+</pre><p>So <code>$ git push heroku master</code> is actually pushing your code/app/file (from some local Git repo) to a remote repo 'heroku' .</p><p>wondering when this 'heroku' remote got created, it was added when you executed <strong><em>$ heroku create</em></strong></p><pre class="prettyprint linenums">$ heroku create
+Creating stark-fog-398... done, stack is cedar
+http://stark-fog-398.herokuapp.com/ | git@heroku.com:stark-fog-398.git
+Git remote heroku added
+</pre><p>Do notice the last line "<strong>Git remote heroku added</strong>".</p><p>to make it more clear, here's a Git command to check/output all the remotes: $ git remote -v will display something similar to the following</p><pre class="prettyprint linenums">$ git remote -v
+heroku     git@heroku.com:somerepo.git (fetch)
+heroku     git@heroku.com:somerepo.git (push)
+</pre><p><em>So we can assume that the following command was executed (implicitly) somewhere, when you did $ heroku create</em> , hence creating the heroku remote to some heroku repo (url)*</p><pre class="prettyprint linenums">$ git remote add heroku git@heroku.com:somerepo.git</pre><p><br>-&nbsp;Thank you to Nabeel Ahmed for this great explanation!</p>
