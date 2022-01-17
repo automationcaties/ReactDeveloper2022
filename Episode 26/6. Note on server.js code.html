@@ -1,0 +1,8 @@
+<p>We have to make one minor change to make sure our code doesn't require us to use https in development. In our <code>server.js</code> file, on line 16 we have:</p><pre class="prettyprint linenums">app.use(enforce.HTTPS({ trustProtoHeader: true }));</pre><p>We want to move this into the conditional block we have that checks if our NODE_ENV is in production mode from line 19-25, simply move the line above into that if block like so:</p><pre class="prettyprint linenums">if (process.env.NODE_ENV === 'production') {
+  app.use(enforce.HTTPS({ trustProtoHeader: true })); &lt;==== Right here
+  app.use(express.static(path.join(__dirname, 'client/build')));
+
+  app.get('*', function(req, res) {
+    res.sendFile(path.join(__dirname, 'client/build', 'index.html'));
+  });
+}</pre><p>Happy coding :)</p>
