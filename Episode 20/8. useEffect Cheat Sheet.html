@@ -1,0 +1,27 @@
+<p>A quick recap of what we have learned about useEffect:</p><p><br></p><h4>ComponentDidMount</h4><pre class="prettyprint linenums">//Class
+componentDidMount() {
+    console.log('I just mounted!');
+}
+
+//Hooks
+useEffect(() =&gt; {
+    console.log('I just mounted!');
+}, [])</pre><p><br></p><h4>ComponentWillUnmount</h4><pre class="prettyprint linenums">//Class
+componentWillUnmount() {
+    console.log('I am unmounting');
+}
+
+//Hooks
+useEffect(() =&gt; {
+    return () =&gt; console.log('I am unmounting');
+}, [])</pre><p><br></p><h4>ComponentWillReceiveProps </h4><pre class="prettyprint linenums">//Class
+componentWillReceiveProps(nextProps) {
+    if (nextProps.count !== this.props.count) {
+        console.log('count changed', nextProps.count);
+    }
+}
+
+//Hooks
+useEffect(() =&gt; {
+    console.log('count changed', props.count);
+}, [props.count])</pre>
