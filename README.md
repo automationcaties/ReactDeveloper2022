@@ -1,1 +1,3 @@
 # ReactDeveloper2022
+Hey AutomationCaties, Welcome to the React Developer 2022 Series. In this series, There are 30 Episodes in this React Developer Course, Which includes Tutorials From SCratch of Basics to Advanced React, Building eCommerce from Scratch, and concepts like styled-components, HOC, Router, Forms and Components, Firebase integration, Redux, Stripe Integration. We make sure that if you complete all Episodes of our React Developer Course, then you can become highly confident and motivated to challenge any problem. So, enjoy the video and feel free to ask any question in the comment box.
+Visit for the Playlist: https://youtube.com/playlist?list=PLNY_2xNVFNluC9JMD3tCs3qYFfNeXdJSc
