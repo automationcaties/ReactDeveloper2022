@@ -1,0 +1,15 @@
+<p>Now that you learned about testing, it's time to write your own tests now for our Mastery Project!</p><p>You can always refer to the github repo in the resources that has tests written for the app (which we have written for you) to see how you might tackle writing tests for certain components, or testing certain features! We have also linked the enzyme documentation in the resources as well for you to refer to, this way you can see what methods you may want to use to test specific features!</p><p><br></p><p>One caveat to note, if you want to use the selector based methods in enzyme to target styled-components in a component, just add the <code>.displayName</code> prop to the styled component where it's equal to the name of the const. Then you can target that displayName as a string that you pass as the selector value. For example:</p><pre class="prettyprint linenums">// header.styles.jsx
+
+export const OptionLink = styled(Link)`
+  padding: 10px 15px;
+  cursor: pointer;
+`;
+
+OptionLink.displayName = 'OptionLink';
+
+
+// Header.test.js
+
+describe('test for OptionLink', () =&gt; {
+    wrapper.find('OptionLink') // &lt;= finds OptionLink styled components in wrapper
+});</pre><p>Good luck!</p>
